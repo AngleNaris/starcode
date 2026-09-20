@@ -18,7 +18,7 @@
 <p align="center">
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-AGPL--3.0-blue.svg?style=flat-square" alt="许可证：AGPL-3.0" /></a>
   <a href="https://www.npmjs.com/package/mancode"><img src="https://img.shields.io/npm/v/mancode?style=flat-square" alt="npm 版本" /></a>
-  <img src="https://img.shields.io/badge/status-Continuity%20v0.6.9-2f855a?style=flat-square" alt="状态：mancode Continuity v0.6.9" />
+  <img src="https://img.shields.io/badge/status-Continuity%20v0.6.10-2f855a?style=flat-square" alt="状态：mancode Continuity v0.6.10" />
   <img src="https://img.shields.io/badge/platforms-Claude%20Code%20%7C%20Cursor%20%7C%20Codex%20%7C%20Copilot%20%7C%20ZCode%20%7C%20Kimi%20Code%20%7C%20Qoder%20%7C%20DeepSeek%20Harness-5865F2?style=flat-square" alt="平台：Claude Code、Cursor、ChatGPT 桌面端 Codex、Codex CLI、GitHub Copilot、ZCode、Kimi Code、Qoder、DeepSeek Harness" />
 </p>
 
@@ -134,6 +134,13 @@ requirements、plan、review、verification 和完成门禁维持。
 
 模型可以灵活选择工具与实现步骤，但不能自行改写已批准的目标和验收标准。
 
+### v0.6.10 更新
+
+- 退役本地模型代理网关；旧用户按[退役指南](docs/privacy-gateway-retirement.md)恢复客户端连接。
+- 新增 macOS Keychain 支持的加密 Secrets 保险箱，通过结构化引用向已批准的本地动作注入秘密，执行结果仅返回状态。
+- 修复启动前失败回执、批准摘要与临时目录清理，并加强多行终端无回显和真实宿主验收。
+- Secrets 不拦截其他工具或模型流量；真实钥匙串锁定、拒绝授权等专用环境验收仍待补齐。
+
 ### v0.6.9 更新
 
 - 新增 `mancode upgrade` 数字菜单，一次选择更新 CLI、项目规则与 Skills，或只查看更新。
@@ -154,7 +161,7 @@ requirements、plan、review、verification 和完成门禁维持。
 
 ## 安装方法
 
-**状态**：mancode Continuity v0.6.9。Claude Code、Cursor、ChatGPT 桌面端中的
+**状态**：mancode Continuity v0.6.10。Claude Code、Cursor、ChatGPT 桌面端中的
 Codex、Codex CLI、GitHub Copilot、ZCode、Kimi Code、Qoder 和 DeepSeek Harness adapter 均已接入。
 
 需要 Node.js 22.5.0 或更高版本。原生支持 macOS、Linux、Windows CMD、
@@ -721,7 +728,7 @@ transport 和各平台 bootstrap/原 mode 入口的实际就绪状态。编码 A
 以下是简化输出示例：
 
 ```text
-mancode v0.6.9
+mancode v0.6.10
 
 Project:     my-app
 Runtime:     ready

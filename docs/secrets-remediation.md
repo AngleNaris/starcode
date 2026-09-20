@@ -31,3 +31,13 @@
 在专用环境中，需要分别保留锁定和拒绝授权前后的实际操作、CLI 固定输出/退出码、业务请求为零、保险箱未修改及无明文回退的证据。还需观察系统授权提示期间的响应和取消行为；组件 timeout 测试不能证明该同步原生调用的交互行为。
 
 未运行远端 Node 22/24、Windows/Linux CI；不声称全部 S03 或所有平台已验收通过。本轮验证未发布 npm 包或使用生产凭据。
+
+## 2026-09-20 后续集成核对
+
+上文保留 9 月 18 日的历史验收结果。随后六项审核修复以 `410cf09` 进入主线；`6b838bc` 又修复了启动前失败回执及终端无回显验收：进程未成功启动时返回 `rejected`，启动后的失败仍为 `outcome_unknown`；终端检查统一换行并检查每个非空行，覆盖 CRLF 和部分行回显反例。
+
+9 月 19 日在指定测试目录中的真实 Keychain/OS 启动六场景、Ticket fixture 和终端验收通过；终端补测包含 9 次值检查，独立子 agent 已接受修复。原始报告保留在 `secrets-startup-fix-20260919-QEYUV9/` 及其 `terminal-echo-fix-Gg19SY/` 子目录，没有把历史失败或当时尚未提交的事实改写掉。
+
+9 月 20 日重新读取远端后，`main`、`develop` 均为 `6b838bc2e172d199377731922b084f99862a6e9f`。[Quality Node22/24](https://github.com/whitelonng/mancode/actions/runs/35450296128) 与 [Windows compatibility](https://github.com/whitelonng/mancode/actions/runs/35450296118) 已通过。Linux 各有 32 项按平台跳过；这些 CI 结果不替代真实 macOS Keychain 锁定、拒绝授权和系统提示期间取消的验收，也不是重跑 Codex/Claude 宿主的证据。
+
+因此，代码修复和主线集成已完成，EVD-2 的专用环境验收仍未完成。本次没有核验 npm registry 发布产物。

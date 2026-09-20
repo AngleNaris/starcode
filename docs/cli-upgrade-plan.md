@@ -304,11 +304,11 @@ Plan version: 2
 Review: blocked
 Verification: pending
 
-Reviewer declaration: independent
-Direction: Targeted independent follow-up after user-authorized repairs to R-9 through R-11, retaining the original full module review against approved plan 2 and bound base adb7f3889427ac8dfa29256f9009429f8a245e7c. A repair subagent changed command orchestration and regressions; the original independent reviewer checked the concrete repairs and the four-state persistent-install recovery boundary. Parent independently exercised real CLI/SIGINT/version-drift and PTY behavior, reviewed new shell test drivers and CI wiring, and inspected original test output. Prior scope coverage remains applicable; existing research/** and unrelated README typo remain excluded and preserved.
-Correctness: R-9 now clears only unused version-stale previews after verified project-phase installation or a local project-only receipt; unknown installations and existing journals retain recovery material. Four-state contracts and real 0.6.7-to-0.6.8 interruption followed by npm installation of fixture 0.6.9 prove fresh confirmation and recovery. R-10 passes real SIGINT without an injected throw, retaining unchanged managed files and recoverable receipt, then resumes. R-11 reloads the installed entry metadata so JSON declaration matches package.json. Valid Red logs, the trace-assertion failure, follow-up persistent-install Red and Green results are preserved. Final npm run check passes 190 files/1685 tests against the current subject; real CLI HTTP and Bash shim outcomes are recorded separately. Independent targeted code review found no remaining defect in these repairs. Linux/Windows host acceptance remains unavailable.
+Reviewer declaration: self
+Direction: 2026-09-20 应用户要求核对既有任务、当前代码与提交历史；本次为进度及验收证据的定向复核，保留此前独立总审、R-1 至 R-11 已解决记录，不冒充重新执行独立总审。核对原批准计划及完整范围，读取当前 main 的真实 CI 日志，并检查 78d7e8b 之后的 upgrade 核心代码、CLI/init 与测试差异。
+Correctness: 一键升级已由 70ab02a、21c9795、78d7e8b 实现并修复 Windows shell 测试，经 PR #44 合入主线；0.6.9 准备提交 eb906cd 经 PR #45 合入。当前 main/develop 均为 6b838bc。R-1 至 R-11 的既有修复记录保留；当前 Ubuntu Node22/24 与 Windows 三 shell 真实升级均通过。Windows 控制台真实 Ctrl-C 仍未验证；后续集成导致旧本地 subject 过期，不能把远端 Linux/Windows 结果冒充本机重新执行。
 Proportionality: The command reuses adapter staging, journal recovery, identity and sessions. New code is limited to user choices, installation identification, integrity-bound candidate/install supervision, typed continuation and tests. No lifecycle scripts are silently enabled, no arbitrary shell command is assembled, and CLI/project stages do not claim atomic rollback.
-Next: R-9 through R-11 repaired and locally verified. Keep overall delivery unfinalized until required Linux/Windows runtime and real shell/console evidence is obtained; do not publish or change the user global CLI. Final local repair evidence is in /Users/whitelonng/code/mancode测试/upgrade-repair-20260917/RESULTS.md.
+Next: 代码已合入 main/develop，多平台实际升级已通过；补 Windows 控制台 Ctrl-C 观察，并在原任务交付边界核对其余过期验收记录后再关闭正式任务。当前主线含后续 Secrets 提交，完成门报告 committed_outside_scope；不扩大旧计划范围或删除其他模块来强制通过。详见 docs/project-progress-reconciliation.md。
 - R-1: resolved — Earlier revision retained an installing receipt after a pre-install failure and could not retry. Fixed by checking verified persistent old CLI state, retaining history, and requesting a fresh preview; component and actual before-install interruption pass.
 - R-2: resolved — Earlier receipt recovery could execute an unverified absolute entry and create directories through redirected ancestors. Fixed persistent npm bin verification before spawn and existing-parent validation before mkdir; negative contracts pass.
 - R-3: resolved — Earlier human check output omitted target/install/guidance and preview showed logical target names. Fixed human details, real relative file paths and Chinese status labels; PTY and contracts verified.
@@ -331,21 +331,21 @@ Next: R-9 through R-11 repaired and locally verified. Keep overall delivery unfi
 - AC-9: met — Direct SemVer dependency freezes exact registry version/integrity, checks engines and scripts, rejects downgrades; project-only checks never invoke registry dependencies.
 - AC-10: met — Preview freshness, path symlinks and redirected receipt ancestors, candidate integrity, original session ownership, custom content and original task policy boundaries reviewed and regression tested.
 - AC-11: met — R-9 resolved: both local-only and verified persistent-install project-phase version drift discard only unused stale preview and require new confirmation. Actual three-version npm case returns interruption130, stale-preview4, unconfirmed2, then completed0. Four-state contracts retain installing/repair_required journal evidence. Existing before/after-install and adapter repair/crash cases remain passing.
-- AC-12: met — R-10 resolved: real POSIX SIGINT after receipt save returns130 without writing managed content or starting a journal; same receipt resumes successfully. SIGINT fixture no longer injects a throw. Actual npm cancellation/timeout closes connections and stops writes in final full check; lock/error contracts pass.
-- AC-13: unverified — Unverified for Linux/Windows and Node22/24. Actual local environment macOS arm64 Node25.9.0. CI now enables real npm cancellation/timeout and routes persistent installations through CMD .cmd, PowerShell .ps1 and discovered Git Bash entries. Local Bash shim run validates the POSIX path only. Windows faults remain exception injection, not console Ctrl-C evidence.
-- AC-14: met — R-11 resolved: installation metadata is reread from the verified installed entry and returned declaration now matches actual manifest. Component and actual local npm E2E assert it. Final PTY/help and bilingual docs readback match the public contract; feature remains unreleased.
-- AC-1: automated=passed(surface=component); manual=passed(surface=manual_observation); Executed argv in project root; captured exit code 0.
-- AC-2: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-3: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-4: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-5: automated=passed(surface=component); manual=passed(surface=manual_observation); Executed argv in project root; captured exit code 0.
-- AC-6: automated=passed(surface=real_http); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-7: automated=passed(surface=real_http); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-8: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-9: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-10: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-11: automated=passed(surface=real_http); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-12: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-13: automated=n/a; manual=pending(surface=unspecified); No evidence yet.
-- AC-14: automated=passed(surface=component); manual=passed(surface=manual_observation); Executed argv in project root; captured exit code 0.
+- AC-12: unverified — R-10 resolved: real POSIX SIGINT after receipt save returns130 without writing managed content or starting a journal; same receipt resumes successfully. SIGINT fixture no longer injects a throw. Actual npm cancellation/timeout closes connections and stops writes in final full check; lock/error contracts pass. 2026-09-20：当前 Windows 实际 npm 取消/超时 22/22 已通过（https://github.com/whitelonng/mancode/actions/runs/35450296118）；tests/upgrade-e2e.test.ts:39-42 的 win32 仍用异常注入，不是控制台 Ctrl-C。该环境行为保留未验证。
+- AC-13: met — 2026-09-20 核对 main/develop 提交 6b838bc。已逐项读取 GitHub 实际 job/step 与日志：https://github.com/whitelonng/mancode/actions/runs/35450296128 的 Ubuntu Node 22/24 均运行真实 upgrade-e2e 10/10；https://github.com/whitelonng/mancode/actions/runs/35450296118 的 CMD、PowerShell、Git Bash 各 10/10，真实 npm cancellation/timeout 22/22。复用既有 macOS arm64 Node25.9.0 真实 npm/PTY 证据；78d7e8b 到当前提交的 upgrade 编排、安装、续接、适配器事务及 upgrade-e2e 内容未变。CLI/init 的后续变更仅退役网关并注册 Secrets。AC-13 的多平台路径及实际 npm 续接已有证据。Windows 控制台真实 Ctrl-C 尚未观察，测试里的 Windows 异常注入不能证明该行为，保留为 AC-12 缺口。本次是读取既有执行证据，未重新运行这些测试。
+- AC-14: met — R-11 resolved: installation metadata is reread from the verified installed entry and returned declaration now matches actual manifest. Component and actual local npm E2E assert it. Final PTY/help and bilingual docs readback match the public contract; 历史当时尚未发布；现在代码已合入主线且含 0.6.9 准备提交，本次未核验 npm registry 发布产物。
+- AC-1: automated=pending(surface=unspecified); manual=pending(surface=unspecified); No evidence yet.
+- AC-2: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-3: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-4: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-5: automated=pending(surface=unspecified); manual=pending(surface=unspecified); No evidence yet.
+- AC-6: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-7: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-8: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-9: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-10: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-11: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-12: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-13: automated=n/a; manual=passed(surface=manual_observation); 2026-09-20 核对 main/develop 提交 6b838bc。已逐项读取 GitHub 实际 job/step 与日志：https://github.com/whitelonng/mancode/actions/runs/35450296128 的 Ubuntu Node 22/24 均运行真实 upgrade-e2e 10/10；https://github.com/whitelonng/mancode/actions/runs/35450296118 的 CMD、PowerShell、Git Bash 各 10/10，真实 npm cancellation/timeout 22/22。复用既有 macOS arm64 Node25.9.0 真实 npm/PTY 证据；78d7e8b 到当前提交的 upgrade 编排、安装、续接、适配器事务及 upgrade-e2e 内容未变。CLI/init 的后续变更仅退役网关并注册 Secrets。AC-13 的多平台路径及实际 npm 续接已有证据。Windows 控制台真实 Ctrl-C 尚未观察，测试里的 Windows 异常注入不能证明该行为，保留为 AC-12 缺口。本次是读取既有执行证据，未重新运行这些测试。
+- AC-14: automated=pending(surface=unspecified); manual=pending(surface=unspecified); No evidence yet.
 <!-- mancode:delivery-record:end -->

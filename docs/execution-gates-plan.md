@@ -217,29 +217,29 @@ Agent A独占context/runtime权威、兼容、预算与aggregate完成门；Agen
 Task: local:01M2MXNCPZ0VF1EZSX7K44MY1S
 Plan version: 2
 Review: blocked
-Verification: passed
+Verification: pending
 
 Reviewer declaration: self
-Direction: 用户要求的新agent完成四项修复，主agent依据原独立报告对本次diff、调用链与回归做定向复核；没有新一轮无目标总审。原批准功能与文件范围保持不变。
-Correctness: F-1专用observer来源在通用入口、预约、恢复、登记及历史gate校验；F-2保留当前策略与候选提交的合法选择再做新鲜观察；F-3按检查规模有界计算请求预算并支持分页；F-4固定真实项目根统一路径，保留cwd/custom root。针对原复现增加回归，合法旧CI恢复不重跑不重复扣费。原环境失败未计为有效Red。最终测试和真实CLI结果见验证证据。Windows仍unverified。
+Direction: 2026-09-20 应用户要求进行项目进度对账；保留原独立审核及 F-1 至 F-4 修复闭环。本次检查 Git 提交历史、当前 worker/runner 能力拒绝路径、Windows skip 条件和真实 CI 逐作业日志；未重新运行历史故障演练或冒充新的独立总审。批准目标和范围不变。
+Correctness: 499d79c、ac0d094 的执行门禁及四项修复已进入当前 main/develop 6b838bc，旧记录中的仅本地未推送已过时。当前 Quality Node22/24 全部通过；Windows compatibility 通过，但 bounded execution/TDD 步骤实际只有4项通过、15项跳过。execution-worker.ts 仍在 win32 启动前返回 windows_process_tree_unsupported，runner真实进程用例在Windows跳过，AC-3 尚未实现/实机验收。
 Proportionality: 新增代码限于持久化预算和状态转换、短事务执行协议、薄GitHub/Vitest适配及既有CLI/完成门。nonce/receipt用于防误杀和盲目重放，未建设通用CI或模型框架。只治理受管公共路径；任意宿主编辑、同义根因识别、人类批准身份不由这些字段证明；POSIX只保证原进程组。
-Next: 四项修复定向复验通过后关闭F-1至F-4；保存本地提交，不推送或合并。Windows执行与实机验收仍缺，原任务保持in_progress。
+Next: 保留 in_progress。下一步是实现并在真实 Windows 验证受控进程树终止与中断恢复，再补齐 AC-3 和当前内容的验收记录。其余代码已随 499d79c/ac0d094 合入主线；无需重复修复已关闭 F-1 至 F-4。当前主线包含后续模块，完成门的旧提交范围也需在原交付边界核对，不能用通用 Windows CI 绿灯替代。详见 docs/project-progress-reconciliation.md。
 - F-1: resolved — 普通run接受ci_observation和任意argv，run-recover把自行打印的JSON升级为CI passed；公共CLI已复现execution inspect gate passed。complete仍刷新，未证明完整绕过。src/commands/execution.ts:315,443。
 - F-2: resolved — 同SHA多个workflow runs时，completion从不含runId的policy重建target，丢失合法显式选择；observer复现无选择unverified、有选择passed，完成接线因此无法通过。src/context/execution-completion.ts:80。
 - F-3: resolved — 三个workflow完整观察最少22请求，公开入口与completion固定20，导致合法检查集合始终unverified；当前dist确定性响应已复现。src/commands/execution.ts:403。
 - F-4: resolved — reporter使用Vitest root相对路径而scenario使用仓库根相对路径；真实子目录cwd中的AssertionError误报TARGET_NOT_COLLECTED并消耗预算。src/system/vitest-evidence-reporter.ts:51。
 - AC-1: met — F-1：通用run预约前拒绝CI purpose；authority reservation及ci.observe核对固定observer/target，recover复用校验；gate对历史伪造记录保持CI_UNVERIFIED并保留历史。定向回归和实际CLI拒绝场景覆盖。
 - AC-2: met — execution-ledger/mutation通过journal与revision预约结算，最终一次合法成功可完成。覆盖并发、幂等、两次失败、基础设施最多一次重试、预算扩展与重启保留；真实CLI耗尽后拒绝新run。
-- AC-3: unverified — POSIX runner/worker的nonce控制、start握手、超时、取消和恢复已由契约与macOS强杀演练验证。Windows在spawn前明确windows_process_tree_unsupported，尚未提供并实机验证批准计划要求的Windows进程树清理能力；禁止以旧Windows CI成功替代。
-- AC-4: met — F-2/F-3：completion保留当前candidate/policy匹配的可信runId再刷新；三workflow与jobs分页按规模预算通过。最新性/attempt/结束集合规则不变；旧20请求和JSON键顺序不同的合法receipt恢复通过。
+- AC-3: missing — 2026-09-20 核对 src/runtime/execution-worker.ts:142-145：win32 仍明确拒绝进程树执行；tests/execution-runner.test.ts 的真实进程组测试在 Windows skip。当前 main 的 Windows CI 35450296118 此组 4 passed / 15 skipped。POSIX 历史验收继续保留，但批准计划的 Windows 清理/恢复能力尚未补齐。
+- AC-4: met — F-2/F-3：completion保留当前candidate/policy匹配的可信runId再刷新；三workflow与jobs分页按规模预算通过。最新性/attempt/结束集合规则不变；旧20请求和JSON键顺序不同的合法receipt恢复通过。 2026-09-20 通过正式 delivery verify 在本机执行 tests/ci-observer.test.ts 与 tests/execution-completion.test.ts，真实退出0；作为当前 AC-4 component 证据登记。
 - AC-5: met — F-4：真实project root与运行cwd分离；nested cwd和custom Vitest root真实Red→Green通过；越界及越界符号链接拒绝。指定目录实际dist CLI完成nested Red→Green→verification。
-- AC-6: met — 全量npm run check实际退出0：184文件1602测试通过，build/lint/typecheck/22个dist适配器通过，覆盖率86.68%。npm audit在现有high阈值通过，仍报告Vitest依赖链3项moderate，不作自动大版本升级。
-- AC-7: met — 本次指定mancode测试目录独立fixture执行实际dist CLI伪造CI预约前拒绝、nested TDD完整流程，并使用同一dist做三workflow确定性观察和GitHub真实只读查询；真实远端SHA仍是已发布0958c9f，不冒充新分支CI。Windows未执行。
-- AC-1: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-2: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-3: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
+- AC-6: met — 全量npm run check实际退出0：184文件1602测试通过，build/lint/typecheck/22个dist适配器通过，覆盖率86.68%。npm audit在现有high阈值通过，仍报告Vitest依赖链3项moderate，不作自动大版本升级。 进度更新：当前 main 6b838bc 的 Quality 35450296128，Ubuntu Node22/24各188文件通过、1726测试通过/32按平台跳过；Windows 35450296118兼容作业通过。不是当前macOS重新运行的证据。
+- AC-7: met — 本次指定mancode测试目录独立fixture执行实际dist CLI伪造CI预约前拒绝、nested TDD完整流程，并使用同一dist做三workflow确定性观察和GitHub真实只读查询；真实远端SHA仍是已发布0958c9f，不冒充新分支CI。Windows未执行。 2026-09-20 已另行只读查询当前6b838bc真实远端CI，结果如AC-6；不改写原演练的历史目标SHA或未执行平台。
+- AC-1: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-2: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-3: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
 - AC-4: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-5: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-6: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
-- AC-7: automated=passed(surface=component); manual=n/a; Executed argv in project root; captured exit code 0.
+- AC-5: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-6: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
+- AC-7: automated=pending(surface=unspecified); manual=n/a; No evidence yet.
 <!-- mancode:delivery-record:end -->
