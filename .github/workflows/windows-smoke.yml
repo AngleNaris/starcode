@@ -1,6 +1,7 @@
 name: Windows compatibility gate
 
 on:
+  workflow_dispatch:
   push:
   pull_request:
 
