@@ -2,7 +2,11 @@
   <img src="logo.png" alt="mancode logo for AI coding agent workflow harness" width="140" />
 </p>
 
-<h1 align="center">mancode</h1>
+<h1 align="center">Starcode</h1>
+
+Starcode is the customized [AngleNaris/starcode](https://github.com/AngleNaris/starcode) fork of [whitelonng/mancode](https://github.com/whitelonng/mancode). The repository rename preserves compatibility with the `mancode` CLI, npm package name, TaskRef and managed protocols. Upstream documentation follows below.
+
+Clone this custom version with `git clone https://github.com/AngleNaris/starcode.git`.
 
 ## This fork: develop with a visual specification
 
@@ -24,6 +28,13 @@ This repository's unmanaged AGENTS section links the skill, and the npm package 
 `mancode init` does not automatically install it into other projects. No global Codex/DSH skill, npm publication,
 or release is created. The upstream npm installation instructions below do not include this fork's custom files.
 The host must supply actual image generation; failures leave G2 blocked. Repairs that restore an approved specification reuse its approvals.
+
+The companion [Kasidia Frontend Law skill](kasidia-frontend-law/SKILL.md) preserves scoped alignment,
+shared component contracts and reversible motion. It contributes criteria within those same stages without
+another approval questionnaire or task ledger. Its [optional tools](kasidia-frontend-law/references/tools.md)
+generate grid manifests and check rendered geometry/surfaces; the synthetic reference kit is neither an approved
+generated design nor a production backend. Tool dependencies stay in its own `tools/` directory, outside mancode's
+root dependencies and global hosts. See [sources and licenses](kasidia-frontend-law/THIRD_PARTY.md).
 
 <p align="center">
   AI coding agent workflow harness and local-first Continuity CLI with privacy

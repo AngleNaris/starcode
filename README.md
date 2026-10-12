@@ -2,7 +2,11 @@
   <img src="logo.png" alt="mancode AI 编码代理工作流调度工具 logo" width="140" />
 </p>
 
-<h1 align="center">mancode</h1>
+<h1 align="center">Starcode</h1>
+
+Starcode 是 [AngleNaris/starcode](https://github.com/AngleNaris/starcode) 维护的自定义版本，基于 [whitelonng/mancode](https://github.com/whitelonng/mancode)。仓库更名不改变兼容的 `mancode` CLI、npm 包名、TaskRef 或托管协议；下方保留上游说明。
+
+克隆自定义版：`git clone https://github.com/AngleNaris/starcode.git`。
 
 ## 本 fork：按视觉规格开发
 
@@ -19,6 +23,11 @@ G1 后保持 Step 4 待确认；G2 获批后修订最终计划并确认执行；
 本仓库的 AGENTS 非托管区域已接入读取入口，npm 打包清单包含完整独立目录；`mancode init` 不会自动把它安装到其他项目。
 没有安装用户全局 Codex/DSH 技能，也未发布 npm 包或 release；下方上游 npm 安装方法不包含本 fork 的定制文件。
 图像生成能力需由实际宿主提供，生成失败保持 G2 阻塞。普通恢复性小修复复用已有批准，无需重选风格。
+
+配套 [KFL — Kasidia Frontend Law](kasidia-frontend-law/SKILL.md) 保留原有对齐、共享组件与可逆动效规范，
+在上述关卡内补充设计质量约束，不增加第二套审批或任务状态。其 [可选工具](kasidia-frontend-law/references/tools.md)
+提供 grid manifest 生成、浏览器几何与 surface 检查；参考组件集是合成演示，不是获批效果图或真实后端。
+工具依赖只在自己的 `tools/` 中按需安装，未加入 mancode 根依赖或全局宿主；来源和许可见 [说明](kasidia-frontend-law/THIRD_PARTY.md)。
 
 <p align="center">
   AI 编码代理工作流调度框架与本地优先 Continuity CLI，内置隐私保护与数据脱敏。默认 Solo + 五种治理模式：

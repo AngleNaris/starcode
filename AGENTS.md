@@ -10,6 +10,7 @@ AI coding agent workflow harness with mancode Continuity for cross-conversation 
 交互逻辑确认后保持 Step 4 待确认，真实生成并批准效果图后形成最终基线，再确认执行。
 执行中的基线变更遵循原任务支持的重新对齐 / reframe 协议；恢复批准规格的小修复沿原快速路径。
 此入口是非托管的助手流程约定，不是 G1/G2 运行时强制检查，也不会安装用户全局技能。
+设计与实现时按需读取 [KFL](kasidia-frontend-law/SKILL.md)：它在原关卡内提供布局、复用、动效与可验证质量约束，不重复询问已批准的决定，也不跳过真实生图或另建账本。
 
 ## 命令
 

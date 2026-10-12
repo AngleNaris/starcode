@@ -106,6 +106,8 @@ output/
 
 # Demo projects (local only, not published)
 examples/
+!kasidia-frontend-law/examples/
+!kasidia-frontend-law/examples/**
 
 # Local-only publishing configuration
 .npmrc
