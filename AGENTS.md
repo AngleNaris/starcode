@@ -2,6 +2,15 @@
 
 AI coding agent workflow harness with mancode Continuity for cross-conversation tasks, decisions, verification, and team coordination.
 
+## 本 fork 的视觉开发约定
+
+涉及 UI 的开发先读取 [独立技能入口](develop-with-visual-spec/SKILL.md)、
+[流程规格](develop-with-visual-spec/SPEC.md) 与 [mancode 适配](develop-with-visual-spec/MANCODE.md)。
+保留原 TaskRef、requirements、policy、绑定模块计划和交付账本；模块计划使用 `docs/` 路径。
+交互逻辑确认后保持 Step 4 待确认，真实生成并批准效果图后形成最终基线，再确认执行。
+执行中的基线变更遵循原任务支持的重新对齐 / reframe 协议；恢复批准规格的小修复沿原快速路径。
+此入口是非托管的助手流程约定，不是 G1/G2 运行时强制检查，也不会安装用户全局技能。
+
 ## 命令
 
 ```bash

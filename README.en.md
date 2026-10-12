@@ -4,6 +4,27 @@
 
 <h1 align="center">mancode</h1>
 
+## This fork: develop with a visual specification
+
+This fork adds the independent [develop-with-visual-spec v1.1 skill](develop-with-visual-spec/SKILL.md)
+to upstream 0.6.10: approve interaction logic, generate and approve actual UI images, implement the approved design,
+then verify visuals, user journeys, real data, and engineering checks separately.
+The original TaskRef, requirements, plans, policies, delivery ledger, and continuity protocols remain authoritative.
+There are no new runtime G1/G2 approval guards.
+
+Clone this fork and ask the assistant to read `develop-with-visual-spec/SKILL.md` and the
+[usage guide](develop-with-visual-spec/使用说明.md) (the workflow documents are in Chinese).
+For an existing mancode project, copy the entire directory to its root and, with authorization, add the
+[integration references](develop-with-visual-spec/MANCODE.md) outside managed rule blocks.
+Use one bound module plan at `docs/<module>.md` based on the [module template](develop-with-visual-spec/MODULE.template.md).
+Keep Step 4 pending after G1; after G2, revise the final baseline and confirm execution.
+Changes during execution must follow the existing realignment/reframe protocol.
+
+This repository's unmanaged AGENTS section links the skill, and the npm package file list includes its complete directory.
+`mancode init` does not automatically install it into other projects. No global Codex/DSH skill, npm publication,
+or release is created. The upstream npm installation instructions below do not include this fork's custom files.
+The host must supply actual image generation; failures leave G2 blocked. Repairs that restore an approved specification reuse its approvals.
+
 <p align="center">
   AI coding agent workflow harness and local-first Continuity CLI with privacy
   protection and data redaction. Default Solo

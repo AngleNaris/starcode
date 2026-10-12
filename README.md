@@ -4,6 +4,22 @@
 
 <h1 align="center">mancode</h1>
 
+## 本 fork：按视觉规格开发
+
+本 fork 在上游 0.6.10 基础上附带独立的 [develop-with-visual-spec v1.1](develop-with-visual-spec/SKILL.md)：
+**确认交互逻辑 → 真正生成并批准 UI 效果图 → 按图实现 → 分别验收视觉、旅程、数据与工程。**
+原 TaskRef、requirements、计划、policy、交付账本和接续协议保持不变；没有新增 G1/G2 程序级硬拦截。
+
+使用自定义版：克隆本 fork，让助手读取 `develop-with-visual-spec/SKILL.md`，再按
+[使用说明](develop-with-visual-spec/使用说明.md) 开始。已有 mancode 项目可将整个目录复制到项目根目录，
+经授权在项目规则的非托管区域加入 [适配说明中的引用片段](develop-with-visual-spec/MANCODE.md)。
+模块计划只用一份 `docs/<module>.md`，从 [模块模板](develop-with-visual-spec/MODULE.template.md) 填写。
+G1 后保持 Step 4 待确认；G2 获批后修订最终计划并确认执行；执行中变更先走原重新对齐协议。
+
+本仓库的 AGENTS 非托管区域已接入读取入口，npm 打包清单包含完整独立目录；`mancode init` 不会自动把它安装到其他项目。
+没有安装用户全局 Codex/DSH 技能，也未发布 npm 包或 release；下方上游 npm 安装方法不包含本 fork 的定制文件。
+图像生成能力需由实际宿主提供，生成失败保持 G2 阻塞。普通恢复性小修复复用已有批准，无需重选风格。
+
 <p align="center">
   AI 编码代理工作流调度框架与本地优先 Continuity CLI，内置隐私保护与数据脱敏。默认 Solo + 五种治理模式：
   训练到季后赛。别让你的 AI 过度设计一切，像个 man 一样肘开冗余，干净得分。

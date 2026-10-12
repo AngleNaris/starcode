@@ -50,6 +50,7 @@
   },
   "files": [
     "dist",
+    "develop-with-visual-spec",
     "README.md",
     "README.en.md",
     "logo.png",
