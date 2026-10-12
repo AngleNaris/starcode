@@ -1,7 +1,7 @@
 # Sources and licenses
 
 This skill continues [AngleNaris/KFL](https://github.com/AngleNaris/KFL), whose README declares MIT.
-The source specification and its grid/surface tooling are retained and adapted here from the reviewed [KFL revision adf56ed](https://github.com/AngleNaris/KFL/commit/adf56ed439cc23682637d0c1f12fad2338bceca5). The skill, tools, examples and tests match that revision; integration links and this provenance notice are adjusted for their embedded location.
+The source specification and its grid/surface tooling are retained and adapted here from the reviewed [KFL revision 05ca648](https://github.com/AngleNaris/KFL/commit/05ca648d37166ec449d92029d5ef2271df7cb7ca). The skill, tools, examples and tests match that revision; integration links and this provenance notice are adjusted for their embedded location.
 The source revision has no separate license file. This records the README declaration, not a newly granted license. Mancode's surrounding code retains its existing AGPL-3.0-only license.
 
 The ten Swiss grid principles quote
@@ -17,3 +17,7 @@ The reference-kit icons are the existing KFL local vector definitions, not a new
 ## License verification boundary
 
 No permission text has been supplied here on behalf of either upstream author. The declarations above are evidence of stated licensing intent, not verification of a complete upstream license file.
+
+## Review process reference
+
+The independently worded [design-review guide](references/design-review.md) draws four process ideas from [yetone/kill-ai-slop's skill](https://github.com/yetone/kill-ai-slop/blob/f6e2ae32b30443ec7bd0da4da971ee18d8f8ffcb/skill/SKILL.md) and [detection reference](https://github.com/yetone/kill-ai-slop/blob/f6e2ae32b30443ec7bd0da4da971ee18d8f8ffcb/skill/references/detection.md): assess evidence, repair shared causes, respect intentional choices and review results. The upstream project supplies an [Apache-2.0 license](https://github.com/yetone/kill-ai-slop/blob/f6e2ae32b30443ec7bd0da4da971ee18d8f8ffcb/LICENSE). We did not copy its scanner, taxonomy, source code or prose passages; the local synthesis adapts those ideas to KFL's existing G2 and verification stages without importing its separate approval loop or aesthetic bans. No scan execution is claimed.
