@@ -10,23 +10,25 @@ Starcode 是 [AngleNaris/starcode](https://github.com/AngleNaris/starcode) 维�
 
 ## 本 fork：按视觉规格开发
 
-本 fork 在上游 0.6.10 基础上附带独立的 [develop-with-visual-spec v1.1](develop-with-visual-spec/SKILL.md)：
-**确认交互逻辑 → 真正生成并批准 UI 效果图 → 按图实现 → 分别验收视觉、旅程、数据与工程。**
+本 fork 在上游 0.6.10 基础上附带独立的 [develop-with-visual-spec v1.2](develop-with-visual-spec/SKILL.md)：
+**明确交互逻辑 → 确认视觉依据与本次变更 → 实现真实 UI → 分别验收视觉、旅程、数据与工程。**
 原 TaskRef、requirements、计划、policy、交付账本和接续协议保持不变；没有新增 G1/G2 程序级硬拦截。
+
+G2 默认沿用既有设计体系（inherit）：接续开发、同体系新增页面/布局和局部间距、字号调整，依据现有 token、组件、采用中的页面与真实截图继续，不必重新生图。只有新建视觉体系、整体重做或明确探索新方向才进入 explore，选择适合的真实生图或原型；资产生成单独处理，不重置 UI 风格。已授权的局部修改不重复请求图片批准，历史批准只能据实引用。
 
 使用自定义版：克隆本 fork，让助手读取 `develop-with-visual-spec/SKILL.md`，再按
 [使用说明](develop-with-visual-spec/使用说明.md) 开始。已有 mancode 项目可将整个目录复制到项目根目录，
 经授权在项目规则的非托管区域加入 [适配说明中的引用片段](develop-with-visual-spec/MANCODE.md)。
 模块计划只用一份 `docs/<module>.md`，从 [模块模板](develop-with-visual-spec/MODULE.template.md) 填写。
-G1 后保持 Step 4 待确认；G2 获批后修订最终计划并确认执行；执行中变更先走原重新对齐协议。
+受管任务先把 G1/G2 所需依据纳入最终计划再确认执行；执行中真正改变批准基线时，沿原重新对齐协议。
 
 本仓库的 AGENTS 非托管区域已接入读取入口，npm 打包清单包含完整独立目录；`mancode init` 不会自动把它安装到其他项目。
 没有安装用户全局 Codex/DSH 技能，也未发布 npm 包或 release；下方上游 npm 安装方法不包含本 fork 的定制文件。
-图像生成能力需由实际宿主提供，生成失败保持 G2 阻塞。普通恢复性小修复复用已有批准，无需重选风格。
+只有选择了生图的探索或资产工作依赖图像生成能力；缺失时如实记录该部分阻塞，不能牵连已可沿用系统的开发。所有 UI 路由仍须实际查看运行截图和验证相关交互。
 
-配套 [KFL — Kasidia Frontend Law](kasidia-frontend-law/SKILL.md) 保留原有对齐、共享组件与可逆动效规范，
-在上述关卡内补充设计质量约束，不增加第二套审批或任务状态。其 [可选工具](kasidia-frontend-law/references/tools.md)
-提供 grid manifest 生成、浏览器几何与 surface 检查；参考组件集是合成演示，不是获批效果图或真实后端。
+配套 [KFL — Kasidia Frontend Law](kasidia-frontend-law/SKILL.md) 以美学和场景判断指导对齐、共享组件与可逆动效，
+在上述关卡内补充设计质量判断，不增加第二套审批或任务状态。未明确承诺的无障碍阈值作为末位诊断，不自动覆盖视觉方案；语义与原生行为照常保留。其 [可选工具](kasidia-frontend-law/references/tools.md)
+提供 grid manifest 生成、浏览器几何与 surface 检查；参考组件集是合成演示，不是项目设计基线或真实后端。
 工具依赖只在自己的 `tools/` 中按需安装，未加入 mancode 根依赖或全局宿主；来源和许可见 [说明](kasidia-frontend-law/THIRD_PARTY.md)。
 
 <p align="center">
